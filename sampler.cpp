@@ -208,6 +208,13 @@ int main(int argc, char **argv) {
        }
        refNames += (strlen(refNames) + 1);
 
+       // Clear out the bins so that zero depth bins are not
+       // accidentally kept from previous reference bin 
+       // interations.
+       for (int m=0; m <= maxBin; m++) {
+        bins[m] = 0;
+       }
+
 
     }
     
