@@ -153,8 +153,13 @@ int main(int argc, char **argv) {
                 }
                int64_t endBlockAddress = (endChunk   >> 16) & 0xFFFFFFFFFFFFLL;
                int64_t startBlockAddress   = (startChunk >> 16) & 0xFFFFFFFFFFFFLL;
+
+               if (endBlockAddress - startBlockAddress == 0 && endChunk > 0) {
+                  byteCount = byteCount + (endChunk - startChunk);
+               } else {
+                  byteCount = byteCount + (endBlockAddress - startBlockAddress);
+               }
                
-               byteCount = byteCount + (endBlockAddress - startBlockAddress);
              }
              // only display the 16kb bins            
              if ( binId >=  4681 && binId <= 37449) {
