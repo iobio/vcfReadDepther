@@ -155,7 +155,7 @@ int main(int argc, char **argv) {
                int64_t startBlockAddress   = (startChunk >> 16) & 0xFFFFFFFFFFFFLL;
 
                if (endBlockAddress - startBlockAddress == 0 && endChunk > 0) {
-                  byteCount = byteCount + (endChunk - startChunk);
+                  byteCount = byteCount + 1;
                } else {
                   byteCount = byteCount + (endBlockAddress - startBlockAddress);
                }
